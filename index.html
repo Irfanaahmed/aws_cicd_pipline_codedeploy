@@ -1,375 +1,73 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaceful Vibes</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://www.w3schools.com/w3images/nature.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
 
-{% block header %}
- <!-- <script src="../static/saawebappjs.js"></script>  -->
- <script src="../static/saacom.js"></script> 
- <script src="../static/dashboard.js"></script> 
-{% endblock header %}
-{% block content %}
-    <main role="main" id="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	
-		
-		
-	   <!-- <div class="row">  -->
-	<!-- <div class="primaryselection"> -->
-		
-			
-			<!-- <div class="col-75"> 
-				<div>
-				<select style="width: 150px; height:35px" type="text" id="vhoaselected-init" class="form-control" name="vhoaselected" onchange="selectHoa(this)"> 
-				<option selected="selected">Select HOA</option>
-				</select>
-				</div>
-				<div>
-				<select style="width: 70px; height:35px" type="text" id="vyearselected-init" class="form-control" name="vyearselected" onchange="selectYear(this)"> 
-				<option selected="selected">Select Year</option>
-				</select>
-				</div>
-			</div> -->
-			<!-- <div class="col-25"> 
-				<select style="width: 150px; height:35px" type="text" id="vyearselected-init" class="form-control" name="vyearselected" onchange="selectYear(this)"> 
-				<option selected="selected">Select Year</option>
-				</select> 
-			</div> -->
-			<!-- <div class="col-225">  
-				<!-- <h4 class="h6" id="MainHOAid">
-				where is the description of HOA
-				</h4> 
-				<p class="appPageTitle" id="HoaDescription">Welcome.....</p>
-			</div> -->
-			
-		<!-- </div> -->
-	   		
-		<!--{% for hoa in hoarecord %}
-			{{ hoa.iHoaID|string+" "+hoa.vHoaName }}   Casting for string and int.....variableint|string....variablestring|int 
-			
-		{% endfor %}
-		</h4> -->
-		<!-- <h4 id="selectedHoaID" hidden> -->
-			<!-- {% for hoa in hoarecord %}
-				{{ hoa.iHoaID }}
-			{% endfor %} -->
-		<!-- </h4> -->
-	<!-- 	<h4 id="deb999" hidden>
-			{{ deb999 }}
-		</h4> -->
-	  <!-- </div> -->
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-	    
-		<div class="dashwrapper">
-			  <!-- <div class="headbox headrowh1">h1</div> -->
-			  <!-- <div class="dashbox dashrowReportTitle"><p>a</p></div> -->
-			  <!-- <div class="headbox headrowh3">[h3]-Report Run Date/Report As of Date:</div> -->
-			  <!-- <div class="dashbox dasha">a</div> -->
-			  <!-- <div class="dashbox dashb">b</div> -->
-			  <!-- <div class="dashbox dashc">c</div> -->
-			 <!-- <div class="dashbox dashd">d</div>
-			   <div class="dashbox dashe">e</div>
-				<div class="dashbox dashReportDate">date</div>
-			   <div class="dashbox dashReportTime">time</div> -->
-			   <!-- <div class="headbox headReportCriteria">rc</div> -->
-				<div class="dashbox dashpagetitle">
-					<p class="PageTitle" style="width: 100%;"  id="MainHeading">Dashboard</p>
-					<!-- <h1 class="h2" id="MainHeading">Dashboard</h1> -->
-				</div>
-			   <div class="dashbox dasha"> 
-					
-						<select style="width: 100%; height:100%" type="text" id="vhoaselected-init" class="form-control" name="vhoaselected" onchange="selectHoa(this)"> 
-							<option selected="selected">Select HOA</option>
-						</select>
-						
-				</div>
-				<div class="dashbox dashb">
-					<select style="width: 100%; height:100%" type="text" id="vyearselected-init" class="form-control" name="vyearselected" onchange="selectYear(this)"> 
-						<option selected="selected">Select Year</option>
-					</select>
-				</div>
-				<div class="dashbox dashc">  
-					<!-- <h4 class="h6" id="MainHOAid">
-						where is the description of HOA
-					</h4>  -->
-					<p class="appPageTitle" style="width: 100%;"  id="HoaDescription">Welcome.....</p>
-				</div>
-				<h4 id="selectedHoaID" hidden>
-					<!-- {% for hoa in hoarecord %}
-						{{ hoa.iHoaID }}
-					{% endfor %} -->
-				</h4>
-				<h4 id="selyr" hidden>
-					<!-- {% for hoa in hoarecord %}
-						{{ hoa.iHoaID }}
-					{% endfor %} -->
-				</h4>
-				<h4 id="deb999" hidden>
-					{{ deb999 }}
-				</h4>
-				<h4 id="selp" hidden>
-					
-				</h4>
-				<h4 id="sessionhoa" hidden>
-					{{sessionhoa }}
-				</h4>
-			</div>   
-		
-		
-      
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <!--<button type="button" class="btn btn-sm btn-outline-secondary buttonRounded">Share</button>-->
-			
-			<button type="button" class="actionbtn buttonRounded fourelementsize" hidden>Share</button>
-            <button type="button" class="actionbtn buttonRounded fourelementsize" onclick="sync()">Sync</button>
-			<button type="button" class="actionbtn buttonRounded fourelementsize" onclick="refresh()">Refresh</button>
-          </div>
-          <!-- <button type="button" class="actionbtn buttonRounded fourelementsize">
-            <span data-feather="calendar"></span>
-            This week
-          </button> -->
-        </div> 
-      </div>
-		<!--original canvas height=380 -->
-		<!-- canvas for charts -->
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
 
-<!-- 	 	<div class="wrapper">
-  <div class="box rowh1">h1</div>
-  <div class="box rowh2">h2</div>
-  <div class="box rowh3">h3</div>
-  <div class="box a">A</div>
-  <div class="box b">B</div>
-  <div class="box c">C</div>
-  <div class="box d">D</div>
-</div>  -->
-	<div class="wrapper"> <!-- flex-container"> -->
-		 <div class="box rowh3">
-			<p id="h3title2"></p>
-			<p id="h3title">Selected list</p>
-		</div>
-		<div class="box rowh2">
-			<p id="h2title"> </p>
-			<form name="rdbtn">
-			<input  type="radio" name="paygroup" onclick="handleClick(this)" value="Month" checked="checked"><span class="textcolor"> Monthly </span> </input>
-			<input  type="radio" name="paygroup" onclick="handleClick(this)" value="YTD"><span class="textcolor"> Year To Date</span> </input>
-			</form>
-		</div>
-		<div class="box rowh1">
-			<p id="h1title"> </p>
-			
-		
-		</div>
-		 <div class="box a" id="parenta"> <!--col-100"> -->
-			<canvas class="box a" id="recChartCanvas"  color="Red" style="border:1px solid #000000;">
-			</canvas>
-			<!-- <div id="recchartLegend"></div> -->
-		</div> 
-		<div class="box b" id="parentb"> <!-- col-100">  -->
-			<canvas class="box b" id="payChartCanvas" style="border:1px solid #000000" color="Red">
-			</canvas>
-<!-- 			<div id="paychartLegend"></div> -->
-		</div>
-		<div class="box c" id="parentc"> <!--col-100L"> -->
-			<div class="dashtable-scroll dashdiv" style="height:715px;" id="TabularListl">  <!--class="table-scroll">-->
-				<table class="dashtable" id="dashTablelist" > <!--fixed_header main-table fixed_header id="HeaderTable" -->
-					<col style="width:8%">
-					<col style="width:13.5%">
-				  <thead>
-					<tr>
-					  <th scope="col">{{ col[0] }}</th>
-					  <th scope="col">{{ col[1] }}</th>
-					</tr>
-				  </thead>
-				  <tbody id="dashTable101">
-				   {% for rcd in rcdlist %}
-					<tr>
-						<td class="col01">{{ rcd.col02}}</td>
-						<td class="col02">{{ rcd.col03}}</td>
-					</tr>
-				 {% endfor %}
-				  </tbody>
-				  <tfoot>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-			</tfoot>
-				</table>
-			  </div>
-		</div>
-		<div class="box d" id="parentd"> <!-- col-200">  -->
-			<canvas class="box d" id="ytdChartCanvas"  color="Red" style="border:1px solid #000000;">
-			</canvas>
-		<!-- 	<div id="ytdchartLegend"></div> -->
-		</div>
-<div class="box e ">
-      <h2>Fees</h2>
-	 
-       <div class="dashtable-scroll" id="TabularListf">  <!--class="table-scroll">-->
-        <table class="table" id="HeaderTableID" > <!--fixed_header main-table fixed_header id="HeaderTable" -->
-			<col style="width:8%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			
-          <thead>
-            <tr>
-			  <th scope="col">Id</th>
-              <th scope="col">Fee Code</th>
-              <th scope="col">Fee Name</th>
-              <th scope="col">Fee Frequency</th>
-              <th scope="col">Amount</th>
-			  <th scope="col">Late Fee</th>
-			  <th scope="col">Due Date</th>
-			  <th scope="col">Status</th>
-			
-			  
-			
-            </tr>
-          </thead>
-		  <tbody id="HeaderTable">
-		   {% for fee in feelist %}
-			<tr>
-			
-				
-				<td class="iFeeID">{{ fee.iFeeID}}</td>
-				<td class="vFeeCode">{{ fee.vFeeCode}}</td>
-				<td class="vFeeName">{{ fee.vFeeName}}</td>
-				<td class="vFeeFrequency">{{ fee.vFeeFrequency}}</td>
-				<td class="dFeeAmount">{{ fee.dFeeAmount}}</td>
-				<td class="dFeeLateAmt">{{ fee.dFeeLateAmt}}</td>
-				<td class="vFeeDueDate">{{ fee.vFeeDueDate}}</td>
-				<td class="vStatus">{{ fee.vStatus}}</td>
-				<td class="vFeeNote hideColumn">{{ fee.vFeeNote}}</td>
-				<td class="vFeeReason hideColumn">{{ fee.vFeeReason}}</td>
-				<td class="vFeeRule hideColumn">{{ fee.vFeeRule}}</td>
-				<td class="vFeeCategory hideColumn">{{ fee.vFeeCategory}}</td>
-				<td class="vFeeComments hideColumn">{{ fee.vFeeComments}}</td>
-				<td class="vFeeActionTracker hideColumn">{{ fee.vFeeActionTracker}}</td>
-				
-				<td class="dStartDt hideColumn">{{ fee.dStartDt}}</td>
-				<td class="dEndDt hideColumn">{{ fee.dEndDt}}</td>
-				<td class="vEntryBy hideColumn">{{ fee.vEntryBy}}</td>
-				<td class="tTimestamp hideColumn">{{ fee.tTimestamp}}</td>
-				<td class="iHoaID hideColumn">{{ fee.iHoaID}}</td>
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
 
-			
-			
-            </tr>
-		 {% endfor %}
-          </tbody>
-			<tfoot>
-			  <tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			   <td></td>
-			  
-			  </tr>
-			</tfoot>
-        </table>
-      </div>
-      
-	  </div>
-	  <div class="box f ">
-      <h2>Alerts</h2>
-	      <div class="dashtable-scroll" id="TabularLista">  <!--class="table-scroll">-->
-			<table class="table " id="HeaderTableID" > <!--fixed_header main-table fixed_header id="HeaderTable" -->
-			<col style="width:8%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			<col style="width:9.5%">
-			
-          <thead>
-            <tr>
-			  <th scope="col">Id</th>
-              <th scope="col">Code</th>
-              <th scope="col">Description</th>
-              <th scope="col">Frequency</th>
-              <th scope="col">Due Date</th>
-			  <th scope="col">Time</th>
-			  <th scope="col">Category</th>
-			  <th scope="col">Status</th>
-			
-			  
-			
-            </tr>
-          </thead>
-		  <tbody id="HeaderTable">
-		   {% for alert in alertlist %}
-			<tr>
-			
-				
-				<td class="iAlertID">{{ alert.iAlertID}}</td>
-				<td class="vAlertShortName">{{ alert.vAlertShortName}}</td>
-				<td class="vAlertDescription">{{ alert.vAlertDescription}}</td>
-				<td class="vAlertFrequency">{{ alert.vAlertFrequency}}</td>
-				<td class="vAlertDueDate">{{ alert.vAlertDueDate}}</td>
-				<td class="vAlertTime">{{ alert.vAlertTime}}</td>
-				<td class="vAlertCategory">{{ alert.vAlertCategory}}</td>
-				<td class="vStatus">{{ alert.vStatus}}</td>
-				<td class="vAlertNote hideColumn">{{ alert.vAlertNote}}</td>
-				<td class="vAlertReason hideColumn">{{ alert.vAlertReason}}</td>
-				<td class="vAlertRule hideColumn">{{ alert.vAlertRule}}</td>
-				
-				<td class="vAlertSubject hideColumn">{{ alert.vAlertSubject}}</td>
-				<td class="vAlertBody hideColumn">{{ alert.vAlertBody}}</td>
-				<td class="vAlertFrom hideColumn">{{ alert.vAlertFrom}}</td>
-				<td class="vAlertCred hideColumn">{{ alert.vAlertCred}}</td>
-				<td class="vAlertMailServIn hideColumn">{{ alert.vAlertMailServIn}}</td>
-				<td class="vAlertMailServInSSL hideColumn">{{ alert.vAlertMailServInSSL}}</td>
-				<td class="vAlertMailServOut hideColumn">{{ alert.vAlertMailServOut}}</td>
-				<td class="vAlertMailServOutSSL hideColumn">{{ alert.vAlertMailServOutSSL}}</td>
-				<td class="vAlertDefaEmail hideColumn">{{ alert.vAlertDefaEmail}}</td>
-				<td class="vAlertAction01 hideColumn">{{ alert.vAlertAction01}}</td>
-				<td class="vAlertAction02 hideColumn">{{ alert.vAlertAction02}}</td>
-				<td class="vAlertAction03 hideColumn">{{ alert.vAlertAction03}}</td>
-				<td class="vAlertComments hideColumn">{{ alert.vAlertComments}}</td>
-				
-				<td class="dStartDt hideColumn">{{ alert.dStartDt}}</td>
-				<td class="dEndDt hideColumn">{{ alert.dEndDt}}</td>
-				<td class="vEntryBy hideColumn">{{ alert.vEntryBy}}</td>
-				<td class="tTimestamp hideColumn">{{ alert.tTimestamp}}</td>
-				<td class="iHoaID hideColumn">{{ alert.iHoaID}}</td>
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
 
-			
-			
-            </tr>
-		 {% endfor %}
-          </tbody>
-		  <tfoot>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-       <td></td>
-      
-      </tr>
-    </tfoot>
-        </table>
-      </div>
-   
-      
-	  </div>
-	</div>
-	
-	  <br>
-	  <br>
-	  <br>
-	  
-    </main>
-	{% endblock content %}
-	
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #76b852;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Deployment Successfull</h1>
+        <h2>Welcome to 7CC</h2>
+        <p>
+            Find tranquility in the simplicity of life. Embrace the calm, breathe deeply, and let the serenity of the moment wash over you.
+        </p>
+        <a href="#" class="button">Feel the Calm</a>
+    </div>
+</body>
+</html>
