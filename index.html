@@ -53,6 +53,7 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
 
         .button:hover {
@@ -62,12 +63,20 @@
 </head>
 <body>
     <div class="content">
-        <h1>Deployment Successfull</h1>
+        <h1>Peaceful Vibes</h1>
         <h2>Welcome to 7CC</h2>
         <p>
             Find tranquility in the simplicity of life. Embrace the calm, breathe deeply, and let the serenity of the moment wash over you.
         </p>
-        <a href="#" class="button">Feel the Calm</a>
+        <a class="button" onclick="playMusic()">Feel the Calm</a>
+        <audio id="calmMusic" src="https://www.example.com/path-to-your-music-file.mp3"></audio>
     </div>
+
+    <script>
+        function playMusic() {
+            var music = document.getElementById("calmMusic");
+            music.play();
+        }
+    </script>
 </body>
 </html>
